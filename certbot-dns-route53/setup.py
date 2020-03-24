@@ -9,8 +9,8 @@ version = '1.4.0.dev0'
 # Remember to update local-oldest-requirements.txt when changing the minimum
 # acme/certbot version.
 install_requires = [
-    'acme>=0.29.0',
-    'certbot>=1.1.0',
+    'acme',
+    'certbot',
     'boto3',
     'mock',
     'setuptools',
@@ -64,6 +64,10 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     install_requires=install_requires,
+    dependency_links=[
+        '../acme#egg=acme',
+        '../certbot#egg=certbot',
+    ],
     keywords=['certbot', 'route53', 'aws'],
     entry_points={
         'certbot.plugins': [
