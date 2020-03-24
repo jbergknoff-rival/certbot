@@ -9,8 +9,10 @@ version = '1.4.0.dev0'
 # Remember to update local-oldest-requirements.txt when changing the minimum
 # acme/certbot version.
 install_requires = [
-    'acme',
-    'certbot',
+    # Disabling these two because we'll install them explicitly first.
+    # Pip doesn't seem to be able to install packages from elsewhere in the filesystem
+    #'acme',
+    #'certbot',
     'boto3',
     'mock',
     'setuptools',
@@ -64,10 +66,6 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     install_requires=install_requires,
-    dependency_links=[
-        '../acme#egg=acme',
-        '../certbot#egg=certbot',
-    ],
     keywords=['certbot', 'route53', 'aws'],
     entry_points={
         'certbot.plugins': [
